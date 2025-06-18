@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Repetições em Javascript </title>
+
+    <style>
+        html, body {
+    margin: 0;
+    padding: 0;
+    font:  normal 15pt Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #07baf1, #0bee97);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    height: 90px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(184, 184, 184, 0.3);
+    color:  #f3f3f3;;
+    border-radius: 0 0 10px 10px;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    background-color: rgba(184, 184, 184, 0.3);
+    color: #f3f3f3;
+    border-radius: 10px 10px 0 0;
+}
+ section {
+    width: 100%;
+    width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    display: inline-flex;
+    justify-content: space-around;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="number"] {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 40px;
+}
+
+button {
+    padding: 5px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color:  #0bee97;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+}
+
+.container  {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+select {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+    text-align: center;
+    font-size: 16px;
+}
+
+    </style>
+
+
+
+</head>
+<body>
+        <header>
+            <h1> Tabuada </h1>
+        </header>
+        
+        <section>
+            <h2> Descubra a tabuada de um número </h2>
+            <div class="container">
+                 <input type="number" id="txtn" placeholder="Digite um número" />
+                 <button onclick="tabuada()">Calcular</button>
+            </div>
+            <select name="res" id="res"> <option value="" class="xd"> Aguardando...</option></select>
+        </section>
+
+        <footer>
+            <p> &copy; Victor Millan - CursoEmVídeo - 2025</p>
+        </footer>
+
+        <script>
+            function tabuada() {
+                let n = document.getElementById('txtn').value;
+                let res = document.querySelector('#res');
+
+                res.innerHTML = '';
+
+
+                if ( n.length == 0) {
+                    res.size = 1;
+                    res.innerHTML = '<option>Por favor, digite um número válido!</option>';
+                    return;
+                } else { 
+                        for (let i = 1; i <= 10; i++) {
+                            res.size = 10;
+                            let item = document.createElement('option');
+                            item.text = `${n} x ${i} = ${n * i}`;
+                            res.appendChild(item);
+                        }
+                 }
+
+            }
+
+
+
+        </script>
+</body>
+</html>
